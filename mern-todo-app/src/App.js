@@ -10,7 +10,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <button className="top-tab-buttton">
+            <button className="top-tab-button">
                 Game1
             </button>
             <button className="top-tab-button">
