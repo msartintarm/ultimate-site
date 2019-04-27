@@ -16,10 +16,12 @@ class App extends Component {
             <button className="top-tab-button">
                 Game2
             </button>
+          </header>
+          <div className="content">
             <p>
               Hey there! This is an awesome view.
             </p>
-          </header>
+          </div>
         </div>
         <Route path="/" component={IndexView} />
       </Router>
