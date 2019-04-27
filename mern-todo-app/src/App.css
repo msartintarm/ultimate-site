@@ -26,6 +26,12 @@
   background-color: #321def;
 }
 
+.content-spacer {
+  height: 2px;
+  background-color: #ddee88;
+  margin: 0 25px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
