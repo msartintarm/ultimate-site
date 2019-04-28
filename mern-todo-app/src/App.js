@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, } from "react-router-dom";
 import IndexView from './index_view.component';
 import './App.css';
 
@@ -16,29 +15,44 @@ class App extends Component {
     this.state = {section: Sections.ABOUT};
   }
 
+  topTabButtonClass(section) {
+    return "top-tab-button" + (this.state.section == section? " button-active" : "");
+  }
+
+  sectionClass(section) {
+  return "section" + (this.state.section != section? " section-hide" : "");
+}
+
+
   render() {
     return (
       <Router>
         <div className="App">
           <header className="App-header">
-            <button onClick={this.showGame1Content}
-                className={"top-tab-button" + (this.state.section == Sections.GAME1)? "-active" : ""}>
+            <button onClick={() => this.showGame1Content()}
+                className={this.topTabButtonClass(Sections.GAME1)}>
               Game1
             </button>
-            <button onClick={this.showGame2Content}
-                className={"top-tab-button" + (this.state.section == Sections.GAME2)? "-active" : ""}>
+            <button onClick={() => this.showGame2Content()}
+                className={this.topTabButtonClass(Sections.GAME2)}>
               Game2
             </button>
-            <button onClick={this.showAboutContent}
-                className={"top-tab-button" + (this.state.section == Sections.ABOUT)? "-active" : ""}>
+            <button onClick={() => this.showAboutContent()}
+                className={this.topTabButtonClass(Sections.ABOUT)}>
               About
             </button>
           </header>
-          <Game1Content/>
+          <div className={this.sectionClass(Sections.GAME1)}>
+            <Game1Content />
+          </div>
           <div className="content-spacer"></div>
-          <Game2Content/>
+          <div className={this.sectionClass(Sections.GAME2)}>
+            <Game2Content />
+          </div>
           <div className="content-spacer"></div>
-          <AboutContent/>
+          <div className={this.sectionClass(Sections.ABOUT)}>
+            <AboutContent />
+          </div>
         </div>
         <Route path="/" component={IndexView} />
       </Router>
@@ -59,10 +73,6 @@ class App extends Component {
 
 }
 
-this.setState({
-  counter: this.state.counter + this.props.increment,
-});
-
 class Game1Content extends Component {
   render() {
     return (
@@ -79,7 +89,7 @@ class Game1Content extends Component {
 class Game2Content extends Component {
   render() {
     return (
-      <div class="content">
+      <div className="content">
         <h1>Game 2</h1>
         <p>
           Hey there! This is an awesome view.
@@ -92,7 +102,7 @@ class Game2Content extends Component {
 class AboutContent extends Component {
   render() {
     return (
-      <div class="content">
+      <div className="content">
         <h1>About</h1>
         <h2>About site</h2>
         <p>This site demonstrates several interactive Javascript games.</p>

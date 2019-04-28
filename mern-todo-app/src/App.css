@@ -2,6 +2,7 @@
   text-align: center;
   min-height: 100vh;
   padding: 24px;
+  background-color: #fffff2;
 }
 
 .App-header {
@@ -20,6 +21,16 @@
   justify-content: center;
 }
 
+.section {
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  max-height: 800px;
+}
+
+.section-hide {
+  max-height: 2px;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -27,9 +38,10 @@
 .top-tab-button {
   color: #fed123;
   background-color: #321def;
+  transition: all 0.1s ease-in-out;
 }
 
-.top-tab-button-active {
+.button-active {
   color: #321def;
   background-color: #fed123;
 }
