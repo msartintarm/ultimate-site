@@ -1,10 +1,13 @@
 .App {
   text-align: center;
   min-height: 100vh;
+  padding: 24px;
 }
 
 .App-header {
   display: flex;
+  padding: 12px 12px 0;
+  background-color: #ffff88;
 }
 
 .content {
@@ -24,6 +27,11 @@
 .top-tab-button {
   color: #fed123;
   background-color: #321def;
+}
+
+.top-tab-button-active {
+  color: #321def;
+  background-color: #fed123;
 }
 
 .content-spacer {

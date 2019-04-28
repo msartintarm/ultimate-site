@@ -4,15 +4,35 @@ import logo from './logo.svg';
 import IndexView from './index_view.component';
 import './App.css';
 
+const Sections = Object.freeze({
+    GAME1:   Symbol("game1"),
+    GAME2:  Symbol("game2"),
+    ABOUT: Symbol("about")
+});
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {section: Sections.ABOUT};
+  }
+
   render() {
     return (
       <Router>
         <div className="App">
           <header className="App-header">
-            <button className="top-tab-button">Game1</button>
-            <button className="top-tab-button">Game2</button>
-            <button className="top-tab-button">About</button>
+            <button onClick={this.showGame1Content}
+                className={"top-tab-button" + (this.state.section == Sections.GAME1)? "-active" : ""}>
+              Game1
+            </button>
+            <button onClick={this.showGame2Content}
+                className={"top-tab-button" + (this.state.section == Sections.GAME2)? "-active" : ""}>
+              Game2
+            </button>
+            <button onClick={this.showAboutContent}
+                className={"top-tab-button" + (this.state.section == Sections.ABOUT)? "-active" : ""}>
+              About
+            </button>
           </header>
           <Game1Content/>
           <div className="content-spacer"></div>
@@ -24,7 +44,24 @@ class App extends Component {
       </Router>
     );
   }
+
+  showGame1Content() {
+    this.setState({section: Sections.GAME1});
+  }
+
+  showGame2Content() {
+    this.setState({section: Sections.GAME2});
+  }
+
+  showAboutContent() {
+    this.setState({section: Sections.ABOUT});
+  }
+
 }
+
+this.setState({
+  counter: this.state.counter + this.props.increment,
+});
 
 class Game1Content extends Component {
   render() {
