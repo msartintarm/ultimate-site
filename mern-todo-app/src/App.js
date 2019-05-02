@@ -27,6 +27,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+      <div><a>Hello<div><a>Goodbye</a></div></a></div>
         <div className="App">
           <header className="App-header">
             <button onClick={() => this.showGame1Content()}
